@@ -1,0 +1,41 @@
+#stt = [0, 1, 2]
+#fullNames = ["Tran Quang bach", "tran minh an"]
+#scores=(2, 3)
+#emails = ["bach@", "An@"]
+
+#stt.append(len(stt))
+#fullNames.append("ha minh duong")
+#fullNames.clear
+#print(fullNames)
+#print(fullNames[0], scores[0])
+
+fullNames = []
+ages = []
+scores = []
+emails = []
+ids = []
+
+def addStudent(fullName, age, score, email, id):
+    ids.append(len(ids))
+    fullNames.append(fullName)
+    ages.append(age)
+    scores.append(score)
+    emails.append(email)
+
+def showStudent():
+    print("danh sach sv")
+    for i in range(len(ids)):
+        print(f"{ids[i]}. {fullNames[i]}- {ages[i]}- {emails[i]}")
+
+def main():
+    countStudent = int(input("nhap so luong sv: "))
+    for i in range(countStudent):
+        fullName = input("nhap ten sv")
+        ages = int(input("nhap tuoi sv"))
+        email = input(" nhap email sv:")
+        score = float(input("nhap diem sv"))
+main()
+
+
+
+                    
