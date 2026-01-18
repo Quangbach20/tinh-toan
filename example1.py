@@ -1,52 +1,94 @@
-import random
+from datetime import date
 
-def doan_so(so_lan_doan, so_bi_mat) :
-    for i in range(1, so_lan_doan + 1):
-        if so_lan_doan - i < 2:
-            print(f"Ban con {so_lan_doan - i} luot doan!")
-        so_doan = int(input(f"Lan {i}: doan so nao?"))
-        if so_doan < so_bi_mat:
-            print(" so ban doan nhỏ hon so bi mat")
-        elif so_doan > so_bi_mat:
-            print(" so ban doan lon hon so bi mat")
-        else:
-            print(f" chúc mung ban da doan dung, so bi mat la {so_bi_mat}")
-            break
-    else:
-        print(f"het luot doan! so bi mat la {so_bi_mat}")
-def main():
-    while True:
-        print("======TRO CHOI DOAN SO======")
-        while True:
-            print("nhap vao muc_do")
-            print("1.(1-50) có 7 lượt đoán")
-            print("2. (1-100) có 6 luot doan")
-            print("3. (1-200) có 5 luot doan")
-            muc_do = int(input("chon muc do"))
-            if muc_do == 1:
-                so_lan_doan = 7
-                so_bi_mat = random.randint(1,50)
-            elif muc_do == 2:
-                so_lan_doan = 6
-                so_bi_mat = random.randint(1,100)
-            elif muc_do == 3:
-                so_lan_doan = 5
-                so_bi_mat = random.randint(1,200)
-            else:
-                print("muc do k hop le")
-                continue
-            break
-        if muc_do ==1:
-            print(" toi da nghi ra 1 so tu 1 den 50)")
-        elif muc_do == 2:
-            print(" toi da nghi ra 1 so tt 1 den 100")
-        elif muc_do == 3:
-            print(" toi da nghi ra 1 so tu 1 den 200")
-        doan_so(so_lan_doan, so_bi_mat)
 
-        choi_lai = input("ban co muon chs lai? (y/n):")
-        if choi_lai.lower() != "y":
-                break
+users = [
+    {
+        "username": "admin",
+        "password": "123456",
+        "email": "admin@example.com",
+        "full_name": "Admin User",
+        "active": True,
+        "created_at": "2026-01-18 10:00:00",
+        "updated_at": "2026-01-18 10:00:00"
+    },
+    {
+        "username": "user",
+        "password": "123456",
+        "email": "user@example.com",
+        "full_name": "User User",
+        "active": True,
+        "created_at": "2026-01-18 10:00:00",
+        "updated_at": "2026-01-18 10:00:00"
+    }
+]
+
+def display_menu():
+    print("1. Login")
+    print("2. Register")
+    print("0. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        login()
+    elif choice == "2":
+        register()
+    elif choice == "0":
+        print("Exit")
+        exit()
+
+def login():
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    for user in users:
+        if user["username"] == username and user["password"] == password:
+            print("Login successful")
+            return
+    print("Login failed")
+
+def register():
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    email = input("Enter your email: ")
+    full_name = input("Enter your full name: ")
+    active = True
+    created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    users.append({
+        "username": username,
+        "password": password,
+        "email": email,
+        "full_name": full_name,
+        "active": active,
+        "created_at": created_at,
+        "updated_at": updated_at
+    })
+
+    print("Register successful")
+
+while True:
+    display_menu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    
-        main()
